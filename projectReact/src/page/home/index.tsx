@@ -7,6 +7,7 @@ const Home: React.FC = () => {
     <>
       <Navbar />
       <Mastermenu />
+      <div className="mt-16 w-full min-h-[100vh] flex justify-center"></div>
       <Footer />
     </>
   );
