@@ -3,6 +3,9 @@ import axios from "axios";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { Card } from "../../components/ui/card";
+import Navbar from "../../components/navbar/navbar";
+import MenuNavigation from "../../components/ui/menu-navigation";
+import Footer from "../../components/footer/footer";
 
 // import { Input } from ".ui/input";
 // import { Button } from "./ui/button";
@@ -82,39 +85,44 @@ export default function TodoApp() {
     return status ? "✅" : "❌";
   };
   return (
-    <div className="p-6 max-w-lg mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Todo List</h1>
-      <div className="flex gap-2 mb-4">
-        <Input
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="Add a new todo"
-        />
-        <Button onClick={addTodo}>Add</Button>
-      </div>
-      {todos.length > 0 ? (
-        todos.map((todo) => (
-          <Card key={todo.id}>
-            <div className="flex gap-2 items-center">
-              <span
-                className="cursor-pointer text-2xl"
-                onClick={() => toggleCompleted(todo.id)}
-              >
-                {handlerTodoStatus(todo.completed)}
-              </span>
+    <>
+      <Navbar />
+      <MenuNavigation />
+      <div className="p-6 max-w-lg mx-auto">
+        <h1 className="text-2xl font-bold mb-4">Todo List</h1>
+        <div className="flex gap-2 mb-4">
+          <Input
+            value={newTodo}
+            onChange={(e) => setNewTodo(e.target.value)}
+            placeholder="Add a new todo"
+          />
+          <Button onClick={addTodo}>Add</Button>
+        </div>
+        {todos.length > 0 ? (
+          todos.map((todo) => (
+            <Card key={todo.id}>
+              <div className="flex gap-2 items-center">
+                <span
+                  className="cursor-pointer text-2xl"
+                  onClick={() => toggleCompleted(todo.id)}
+                >
+                  {handlerTodoStatus(todo.completed)}
+                </span>
 
-              <span
-                className={todo.completed ? "line-through text-gray-500" : ""}
-              >
-                {todo.title}
-              </span>
-            </div>
-            <Button onClick={() => deleteTodo(todo.id)}>Delete</Button>
-          </Card>
-        ))
-      ) : (
-        <p className="text-gray-500">No todos yet. Add one!</p>
-      )}
-    </div>
+                <span
+                  className={todo.completed ? "line-through text-gray-500" : ""}
+                >
+                  {todo.title}
+                </span>
+              </div>
+              <Button onClick={() => deleteTodo(todo.id)}>Delete</Button>
+            </Card>
+          ))
+        ) : (
+          <p className="text-gray-500">No todos yet. Add one!</p>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 }
