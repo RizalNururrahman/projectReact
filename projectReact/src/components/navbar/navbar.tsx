@@ -21,6 +21,11 @@ const Navbar: React.FC = () => {
         <h1 className="text-2xl font-bold font-sans">PELNI</h1>
         <div className="relative">
           <button onClick={toggleMenu} className="focus:outline-none">
+            <img
+              src={userImage}
+              alt="User Avatar"
+              className="w-8 h-8 rounded-full"
+            />
             {userName}
           </button>
           {isMenuOpen && (
