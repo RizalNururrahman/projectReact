@@ -1,10 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
+import Coba from "../page/tampilan/filecoba";
 import Home from "../page/home/index";
 import Navbar from "../components/navbar/navbar";
 import TodoApp from "../page/todo/index";
-import Coba from "../page/tampilan/filecoba";
+import MasterMenu from "../page/tampilan/mastermenu/mastermenu";
+import Assignmenu from "../page/tampilan/assignmenu/assignmenu";
 
 const router = createBrowserRouter([
+  {
+    path: "/coba",
+    element: <Coba />,
+  },
   {
     path: "/",
     element: <Home />,
@@ -18,8 +24,12 @@ const router = createBrowserRouter([
     element: <Navbar />,
   },
   {
-    path: "/coba",
-    element: <Coba />,
+    path: "/mastermenu",
+    element: <MasterMenu />,
+  },
+  {
+    path: "/assignmenu",
+    element: <Assignmenu />,
   },
 ]);
 

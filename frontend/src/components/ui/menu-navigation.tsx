@@ -19,7 +19,7 @@ const MenuNav: MenuItem[] = [
   },
   {
     key: "sub2",
-    label: <Link to="/">Master Menu</Link>,
+    label: <Link to="/mastermenu">Master Menu</Link>,
     icon: <FileTextOutlined />,
   },
   {
@@ -49,9 +49,9 @@ const MenuNavigation: React.FC = () => {
   };
 
   return (
-    <nav>
+    <>
       {/* 🔹 Tambahkan daftar menu biasa */}
-      <ul className="flex gap-4 mb-4">
+      {/* <ul className="flex gap-4 mb-4">
         <li>
           <Link to="/" className="hover:text-gray-300">
             Home
@@ -62,7 +62,7 @@ const MenuNavigation: React.FC = () => {
             Todo
           </Link>
         </li>
-      </ul>
+      </ul> */}
       <Menu
         onClick={onClick}
         style={{ width: 256 }}
@@ -71,7 +71,7 @@ const MenuNavigation: React.FC = () => {
         mode="inline"
         items={MenuNav}
       />
-    </nav>
+    </>
   );
 };
 

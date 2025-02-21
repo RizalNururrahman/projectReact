@@ -4,7 +4,7 @@ import React from "react";
 const Coba: React.FC = () => {
   return (
     <div>
-      <p>farel ganteng</p>
+      <h1>Hello World !</h1>
     </div>
   );
 };
